@@ -73,6 +73,7 @@
 }
 
 @layer base {
+  /* variable */
   :root {
     --clr-white: hsl(0, 0%, 100%);
     --clr-gray-100: hsl(0, 2%, 79%);
@@ -280,6 +281,9 @@
     background-color: var(--background-light);
     border-radius: var(--border-radius-3);
     padding: 1rem;
+
+    height: 547px;
+    width: 361px;
 
     img {
       border-radius: var(--border-radius-2);

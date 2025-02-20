@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="index.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -15,7 +16,12 @@
             alt="Fungi Finders"
             class="logo"
           />
-          <nav class="primary-navigation">
+          <!-- hamburger button -->
+          <button aria-controls="primary-nav" aria-expanded="false">
+            <span class="visually-hidden">Menu</span>
+            <img src="/assets/hamburger.svg" alt="" />
+          </button>
+          <nav class="primary-navigation" id="primary-nav">
             <ul role="list">
               <li><a href="#">Discover</a></li>
               <li><a href="#">Mushroom guide</a></li>

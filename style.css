@@ -73,6 +73,7 @@
 }
 
 @layer base {
+  /* variable */
   :root {
     --clr-white: hsl(0, 0%, 100%);
     --clr-gray-100: hsl(0, 2%, 79%);
@@ -182,7 +183,7 @@
 
   a:hover,
   a:focus-visible {
-    background-color: var(--text-brand-light);
+    color: var(--text-brand-light);
   }
 
   img {
@@ -255,11 +256,67 @@
     }
   }
 
+  [aria-controls="primary-nav"] {
+    z-index: 100;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  img {
+    border-radius: 0;
+  }
+  [aria-controls="primary-nav"] {
+    display: none;
+  }
+
+  @media (width < 760px) {
+    [aria-controls="primary-nav"] {
+      display: block;
+    }
+    /* buttonn er sather next child ti holo #priamry-nav */
+    [aria-expanded="true"] + #primary-nav {
+      display: block;
+    }
+  }
+
   .primary-navigation {
+    /* this is the where desktop first approach is best for navigation */
     & ul {
       display: flex;
       gap: 0.5rem 1rem;
       flex-wrap: wrap;
+    }
+
+    a {
+      color: var(--text-high-contrast);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--text-brand-light);
+    }
+
+    @media (width < 760px) {
+      display: none;
+      background-color: var(--background-accent-main);
+      padding: 2rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-bottom-left-radius: var(--border-radius-3);
+
+      ul {
+        flex-direction: column;
+        gap: 0;
+
+        /* lobotomize selector(select the all child(li) inside the ul except the first li) */
+        & li + li {
+          margin-block-start: 1.5rem;
+          padding-block-start: 1.5rem;
+          border-block-start: 2px solid var(--background-accent-light);
+        }
+      }
     }
   }
 
@@ -280,6 +337,9 @@
     background-color: var(--background-light);
     border-radius: var(--border-radius-3);
     padding: 1rem;
+
+    height: 547px;
+    width: 361px;
 
     img {
       border-radius: var(--border-radius-2);

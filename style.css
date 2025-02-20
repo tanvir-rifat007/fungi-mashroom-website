@@ -246,6 +246,23 @@
 }
 
 @layer component {
+  .skip-to-main:not(:focus-visible) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .skip-to-main:focus-visible {
+    position: absolute;
+    background: var(--background-accent-light);
+    border: 2px solid var(--background-accent-light);
+    padding: 1rem;
+  }
+
   .site-header {
     & .site-header__inner {
       display: flex;
